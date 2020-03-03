@@ -6,12 +6,12 @@ const variants = {
     closed: { opacity: 0, height: 0}
 }
 
-const Accordion = ({ title, body, }) => {
+const Accordion = ({ children }) => {
     const [isToggled, setToggle] = useState(0);
     return (
         <article>
             <h2 role="button" onClick={() => setToggle(prevState => !prevState)}>
-                The Heading
+                What Will be The Result
             </h2>
             <AnimatePresence>
                 {isToggled && (
@@ -23,7 +23,7 @@ const Accordion = ({ title, body, }) => {
                         exit= "closed"
                     >
                     <p>
-                        Some
+                        {children}
                     </p>
                     </motion.div>
                 )}

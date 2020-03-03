@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from 'framer-motion'
 
 export const Header = styled.header`
   background: var(--black);
@@ -16,6 +17,7 @@ export const Header = styled.header`
   }
 `;
 
+
 export const Container = styled.div`
   width: 95%;
   max-width: 600px;
@@ -28,10 +30,11 @@ export const CardGrid = styled.div`
   grid-gap: 20px;
 `;
 
-export const Card = styled.div`
+export const Card = styled(motion.div)`
   margin: 5% auto;
   border-radius: 15px;
   padding: 20px;
+  width: 75%;
   color: white;
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -40,6 +43,7 @@ export const Card = styled.div`
     display: flex;
     text-align: center;
     justify-content: center;
+    color: black;
     margin: 5%;
     font-size: 100%;
   }
@@ -56,8 +60,9 @@ export const Card = styled.div`
 export const StyledBtn = styled.button`
   position: relative;
   font-size: 2.5vmin;
-  width: 50%;
-  margin: 5% 30% 0% 25%;
+  width: 60%;
+  height: 70px;
+  margin: 5% 30% 0% 20%;
   cursor: pointer;
   border: ${props =>
     props.primary ? '2px solid violet' : '2px solid palevioletred'};
@@ -71,7 +76,7 @@ export const StyledBtn = styled.button`
     background-color: ${props =>
     props.primary ? 'violet' : 'palevioletred'};
     color: white; 
-    width: 53%;  
+    width: 62%;  
     transition: 0.4s;
     } 
   }`
