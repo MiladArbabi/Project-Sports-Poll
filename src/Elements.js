@@ -29,15 +29,49 @@ export const CardGrid = styled.div`
 `;
 
 export const Card = styled.div`
+  margin: 5% auto;
   border-radius: 15px;
   padding: 20px;
   color: white;
-  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  
   h3 {
-    margin-top: 0;
-    font-size: 2rem;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 5%;
+    font-size: 100%;
   }
   img {
     width: 100%;
   }
+
+  :hover {
+    box-shadow: 1px 1px 8px rgba(0.3, 0.3, 0.3, 0.7);
+    transition: 0.3s;
+  }
 `;
+
+export const StyledBtn = styled.button`
+  position: relative;
+  font-size: 2.5vmin;
+  width: 50%;
+  margin: 5% 30% 0% 25%;
+  cursor: pointer;
+  border: ${props =>
+    props.primary ? '2px solid violet' : '2px solid palevioletred'};
+  border-radius: 20%;
+  background-color: #232020;
+  color: white;
+  transition: 0.3s;
+
+
+  :hover {
+    background-color: ${props =>
+    props.primary ? 'violet' : 'palevioletred'};
+    color: white; 
+    width: 53%;  
+    transition: 0.4s;
+    } 
+  }`

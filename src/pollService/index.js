@@ -1,16 +1,4 @@
-import React, { Component } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import styled from 'styled-components';
-
-import PollCard from './components/PollCard';
-import Poll from './Poll';
-import { PollContext } from './PollContext';
-
-import { Card, Container, Header } from "./Elements";
-import "./App.css";
-
-class PollProvider extends Component {
-  state = [
+const dataBank = [
     {
       "awayName": "Panthrakikos Komotini",
       "createdAt": "2015-12-18T12:30:39.228Z",
@@ -132,12 +120,12 @@ class PollProvider extends Component {
       "state": "STARTED"
     },
     {
-      "awayName": "Doumbia, S\/Reboul, F",
+      "awayName": "Doumbia, S/Reboul, F",
       "createdAt": "2015-12-18T12:30:39.289Z",
       "group": "Nigeria",
-      "homeName": "Harris, L G M\/Maamoun, K M",
+      "homeName": "Harris, L G M/Maamoun, K M",
       "id": 1003026313,
-      "name": "Harris, L G M\/Maamoun, K M - Doumbia, S\/Reboul, F",
+      "name": "Harris, L G M/Maamoun, K M - Doumbia, S/Reboul, F",
       "objectId": "JxrZyQKTrw",
       "sport": "TENNIS",
       "country": "FRANCE",
@@ -180,24 +168,24 @@ class PollProvider extends Component {
       "state": "STARTED"
     },
     {
-      "awayName": "Kania, P\/Kerkhove, L",
+      "awayName": "Kania, P/Kerkhove, L",
       "createdAt": "2015-12-18T12:30:39.311Z",
       "group": "Ankara",
-      "homeName": "Buyukakcay, C\/Krunic, A",
+      "homeName": "Buyukakcay, C/Krunic, A",
       "id": 1003026234,
-      "name": "Buyukakcay, C\/Krunic, A - Kania, P\/Kerkhove, L",
+      "name": "Buyukakcay, C/Krunic, A - Kania, P/Kerkhove, L",
       "objectId": "mTVUIuYdbF",
       "sport": "TENNIS",
       "country": "SWEDEN",
       "state": "NOT_STARTED"
     },
     {
-      "awayName": "Chernetsova, D\/Perper, A",
+      "awayName": "Chernetsova, D/Perper, A",
       "createdAt": "2015-12-18T12:30:39.317Z",
       "group": "El Kantaoui",
-      "homeName": "Baskova, D\/Podlinska, M",
+      "homeName": "Baskova, D/Podlinska, M",
       "id": 1003026673,
-      "name": "Baskova, D\/Podlinska, M - Chernetsova, D\/Perper, A",
+      "name": "Baskova, D/Podlinska, M - Chernetsova, D/Perper, A",
       "objectId": "heL53W56d2",
       "sport": "TENNIS",
       "country": "FRANCE",
@@ -226,47 +214,12 @@ class PollProvider extends Component {
       "sport": "TENNIS",
       "country": "ENGLAND",
       "state": "FINISHED"
+    },
+    {
+      
     }
-  ];
+  ]
+  
 
-  render() {
-    return (
-      <PollContext.Provider
-        value={{
-          game: this.state[Math.round(Math.random() * this.state.length)]
-        }}
-      >
-        {this.props.children}
-      </PollContext.Provider>
-    );
-  }
-}
-
-class App extends Component {
-  render() {
-    return (
-      <PollProvider>
-        <AnimatePresence>
-          <Header>
-            Glomo - Sport Polling Application
-        </Header>
-          <motion.div
-            initial={{ y: -50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1 }}
-            exit={{}}
-          >
-
-            <Container>
-              <Card style={{ background: "var(--purp)" }}>
-                <Poll />
-              </Card>
-            </Container>
-          </motion.div>
-        </AnimatePresence>
-      </PollProvider>
-    );
-  }
-}
-
-export default App;
+  export default (n = 1) => 
+  Promise.resolve(dataBank.sort(() => 0.5 -Math.random()).slice(0, n));
