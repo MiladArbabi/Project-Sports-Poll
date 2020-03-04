@@ -9,6 +9,8 @@ const Poll = () => {
     const [homeWin, setHomeWin] = useLocalState('Home Win', 0);
     const [itsDraw, setDraw] = useLocalState('Draw', 0);
     const [awayWin, setAwayWin] = useLocalState('Away Win', 0);
+
+    
     return (
         <PollContext.Consumer>
             {(context) => (
