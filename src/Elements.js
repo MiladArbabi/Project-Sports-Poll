@@ -17,7 +17,6 @@ export const Header = styled.header`
   }
 `;
 
-
 export const Container = styled.div`
   width: 95%;
   max-width: 600px;
@@ -25,9 +24,26 @@ export const Container = styled.div`
   padding-bottom: 60px;
 `;
 
-export const CardGrid = styled.div`
-  display: grid;
-  grid-gap: 20px;
+export const NavLinks = styled(motion.nav)`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  & div {
+    padding: 1rem 5rem 1rem 3rem;
+}
+  & a {
+    font-size: 1rem;
+    line-height: 2;
+    color: #dfe6e9;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      color: #fdcb6e;
+    }
+  }
 `;
 
 export const Card = styled(motion.div)`
@@ -43,14 +59,11 @@ export const Card = styled(motion.div)`
     display: flex;
     text-align: center;
     justify-content: center;
-    color: black;
+    color: white;
     margin: 5%;
     font-size: 100%;
   }
-  img {
-    width: 100%;
-  }
-
+  
   :hover {
     box-shadow: 1px 1px 8px rgba(0.3, 0.3, 0.3, 0.7);
     transition: 0.3s;
@@ -65,17 +78,15 @@ export const StyledBtn = styled.button`
   margin: 5% 30% 0% 20%;
   cursor: pointer;
   border: ${props =>
-    props.primary ? '2px solid violet' : '2px solid palevioletred'};
+    props.primary ? 'var(--purple)' : 'var(--blue)'};
   border-radius: 20%;
   background-color: #232020;
   color: white;
   transition: 0.3s;
 
-
   :hover {
     background-color: ${props =>
-    props.primary ? 'violet' : 'palevioletred'};
-    color: white; 
+    props.primary ? 'var(--purple)' : 'var(--blue)'};
     width: 62%;  
     transition: 0.4s;
     } 

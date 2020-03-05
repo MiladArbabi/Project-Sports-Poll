@@ -10,11 +10,11 @@ const Poll = () => {
     const [itsDraw, setDraw] = useLocalState('Draw', 0);
     const [awayWin, setAwayWin] = useLocalState('Away Win', 0);
 
-    
     return (
         <PollContext.Consumer>
             {(context) => (
                 <div>
+                    {/* Catch error */}
                     <h3>{context.game.country}</h3>
                     <h3>{context.game.sport}</h3>
                     <h3>{context.game.name}</h3>
