@@ -1,24 +1,27 @@
 import React from 'react';
-import { StyledBtn } from "../Elements";
-import { Link } from "react-router-dom";
-import { motion } from 'framer-motion';
+import { Link, withRouter } from "react-router-dom";
+import { AnimatePresence } from 'framer-motion';
 
-const Home = () => {
-    return (
-        <div>
-            <h1><center>Click Below To Start The Polling Application</center></h1>
-            <motion.div
-                initial={{ y: -50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1 }}
-            >
-                <Link to="/polls/:id">
-                    <StyledBtn>VoteEm</StyledBtn>
+import { PollContext } from '../components/PollContext';
+import { MainPageLayout, StyledBtn } from "../Elements";
+
+const Home = ({ match: { params, url } }) => (
+    <PollContext.Consumer>
+        {(context) => (
+            <MainPageLayout>
+                <h2><center>Click Below To Start The Polling Application</center></h2>
+                <Link to={`/polls/${context.game.id}`}>
+                    <StyledBtn
+                        onClick={() => url.replace(`/${params.id}`, `/${context.game.id}`)}
+                        whileTap={{ scale: 0.8 }}
+                        exit={{ opacity: 0 }}
+                    >
+                        BEGIN 
+                    </StyledBtn>
                 </Link>
-            </motion.div>
+            </MainPageLayout>
+        )}
+    </PollContext.Consumer>
+)
 
-        </div>
-    )
-};
-
-export default Home;
+export default withRouter(Home);

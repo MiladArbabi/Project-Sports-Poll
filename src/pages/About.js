@@ -1,23 +1,16 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { motion } from 'framer-motion';
+import { MainPageLayout, StyledBtn } from "../Elements";
 
-const About = () => {
-    return (
-        <div>
-            <h1><center>This is a project created for assessment of Milad React skills by Glomo</center></h1>
-            <motion.div
-                initial={{ y: 150, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1 }}
-            >
-                <Link to="/">
-                    <a>Back to Home</a>
-                </Link>
-            </motion.div>
-
-        </div>
-    )
-};
+const About = () => (
+    <MainPageLayout>
+        <p><center>This is a project created for assessment of Milad React skills by Glomo</center></p>
+        <Link to="/">
+            <StyledBtn whileTap={{ scale: 0.8 }}>
+                Back to Home
+            </StyledBtn>
+        </Link>
+    </MainPageLayout>
+);
 
 export default About;

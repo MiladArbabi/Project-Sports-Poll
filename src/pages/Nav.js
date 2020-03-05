@@ -1,22 +1,19 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { NavLinks } from "../Elements";
+import { PollContext } from '../components/PollContext';
 
-// const variants = {
-//   open: { opacity: 1, x: 0 },
-//   closed: { opacity: 0, x: "-100%" },
-// }
-
-export const Nav = () => {
-  return (
-    <NavLinks
-      initial={{ x: -100, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 1 }}>
-        <div><Link to="/" >Home</Link></div>
-        <div><Link to="/polls/:id" >Polls</Link></div>
-        <div><Link to="/about" >About</Link></div>
+export const Nav = ({ match: { params, url } }) => (
+  <PollContext.Consumer>
+  {(context) => (
+    <NavLinks>
+      <Link to="/" >Home</Link>
+      <Link to={`/polls/${context.game.id}`} >Polls</Link>
+      <Link to="/about">About</Link>
     </NavLinks>
-  )
-}
-export default Nav;
+  )}
+  </PollContext.Consumer>
+)
+{/* <Link key={context.game.id} to={url.replace(`/${params.id}`, `/${context.game.id}`)}> */ }
+
+export default withRouter(Nav);

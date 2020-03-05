@@ -6,9 +6,6 @@ export const Header = styled.header`
   color: white;
   padding: 20px;
   display: flex;
-  > svg {
-    margin-right: 20px;
-  }
   > * {
     margin: 0;
   }
@@ -24,18 +21,22 @@ export const Container = styled.div`
   padding-bottom: 60px;
 `;
 
+export const MainPageLayout = styled.div`
+  color: white;
+  padding: 20px;
+  display: relative;
+`;
+
 export const NavLinks = styled(motion.nav)`
     display: flex;
     justify-content: center;
     align-items: center;
 
-  & div {
-    padding: 1rem 5rem 1rem 3rem;
-}
   & a {
     font-size: 1rem;
     line-height: 2;
     color: #dfe6e9;
+    padding: 1rem 5rem 1rem 3rem;
     text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
@@ -63,16 +64,16 @@ export const Card = styled(motion.div)`
     margin: 5%;
     font-size: 100%;
   }
-  
+
   :hover {
     box-shadow: 1px 1px 8px rgba(0.3, 0.3, 0.3, 0.7);
     transition: 0.3s;
   }
 `;
 
-export const StyledBtn = styled.button`
+export const StyledBtn = styled(motion.button)`
   position: relative;
-  font-size: 2.5vmin;
+  font-size: 2vmin;
   width: 60%;
   height: 70px;
   margin: 5% 30% 0% 20%;
