@@ -14,9 +14,8 @@ const Home = ({ match: { params, url } }) => (
                     <StyledBtn
                         onClick={() => url.replace(`/${params.id}`, `/${context.game.id}`)}
                         whileTap={{ scale: 0.8 }}
-                        exit={{ opacity: 0 }}
                     >
-                        BEGIN 
+                        BEGIN
                     </StyledBtn>
                 </Link>
             </MainPageLayout>

@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,12 +22,11 @@ const App = () => (
       <PollProvider>
         <Layout>
           <Container>
-            <AnimatePresence>
               <motion.div
                 initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1 }}
-                exit={{ y: 200, opacity: 0 }}
+                exit={{ opacity: 0 }}
               >
                 <Card style={{ background: "var(--purp)" }} >
                   <Switch>
@@ -37,7 +36,6 @@ const App = () => (
                   </Switch>
                 </Card>
               </motion.div>
-            </AnimatePresence>
           </Container>
         </Layout>
       </PollProvider>

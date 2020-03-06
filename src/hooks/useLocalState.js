@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 
 function useLocalState(key, initialValue) {  
@@ -18,9 +18,7 @@ function useLocalState(key, initialValue) {
       // Allow value to be a Number so we have same API as useState
       const valueToStore =
         value instanceof Number ? value(storedValue) : value + 1;
-      // Save state
       setStoredValue(valueToStore);
-      // Save to local storage
       window.localStorage.setItem(key, JSON.stringify(valueToStore));
     } catch (error) {
       console.log(error);

@@ -18,15 +18,16 @@ const Poll = ({ match: { params, url } }) => {
                     <h3>{context.game.sport}</h3>
                     <h3>{context.game.name}</h3>
                     <h3>{context.game.state}</h3>
+
                     <form className="options" onClick={() => window.location.reload()}>
                         <Link key={context.game.id} to={url.replace(`/${params.id}`, `/${context.game.id}`)}>
-                            <StyledBtn onClick={() => setHomeWin(homeWin)} whileTap={{ scale: 0.8 }}>
+                            <StyledBtn onClick={() => setHomeWin(homeWin)} whileTap={{ scale: 0.85 }}>
                                 {context.game.homeName}
                             </StyledBtn>
-                            <StyledBtn onClick={() => setDraw(itsDraw)}whileTap={{ scale: 0.8 }}>
-                                Draw 
+                            <StyledBtn onClick={() => setDraw(itsDraw)} whileTap={{ scale: 0.85 }}>
+                                Draw
                             </StyledBtn>
-                            <StyledBtn onClick={() => setAwayWin(awayWin)}whileTap={{ scale: 0.8 }}>
+                            <StyledBtn onClick={() => setAwayWin(awayWin)} whileTap={{ scale: 0.85 }}>
                                 {context.game.awayName}
                             </StyledBtn>
                         </Link>

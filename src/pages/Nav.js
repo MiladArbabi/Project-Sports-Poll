@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { NavLinks } from "../Elements";
 import { PollContext } from '../components/PollContext';
 
-export const Nav = ({ match: { params, url } }) => (
+export const Nav = () => (
   <PollContext.Consumer>
   {(context) => (
     <NavLinks>
@@ -14,6 +14,5 @@ export const Nav = ({ match: { params, url } }) => (
   )}
   </PollContext.Consumer>
 )
-{/* <Link key={context.game.id} to={url.replace(`/${params.id}`, `/${context.game.id}`)}> */ }
 
-export default withRouter(Nav);
+export default Nav;
