@@ -27,5 +27,3 @@ const Home = ({ match: { params, url } }) => (
 )
 
 export default withRouter(Home);
-
-// b64f06a055246cf554cb8e64d1d3cb9fa955b2f9
