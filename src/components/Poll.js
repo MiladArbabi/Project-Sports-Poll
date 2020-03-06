@@ -21,13 +21,13 @@ const Poll = ({ match: { params, url } }) => {
 
                     <form className="options" onClick={() => window.location.reload()}>
                         <Link key={context.game.id} to={url.replace(`/${params.id}`, `/${context.game.id}`)}>
-                            <StyledBtn onClick={() => setHomeWin(homeWin)} whileTap={{ scale: 0.85 }}>
+                            <StyledBtn onClick={() => setHomeWin(homeWin)} exit={{ opacity: 0 }} >
                                 {context.game.homeName}
                             </StyledBtn>
-                            <StyledBtn onClick={() => setDraw(itsDraw)} whileTap={{ scale: 0.85 }}>
+                            <StyledBtn onClick={() => setDraw(itsDraw)} whileTap={{ scale: 0.85 }} exit={{ opacity: 0 }}>
                                 Draw
                             </StyledBtn>
-                            <StyledBtn onClick={() => setAwayWin(awayWin)} whileTap={{ scale: 0.85 }}>
+                            <StyledBtn onClick={() => setAwayWin(awayWin)} whileTap={{ scale: 0.85 }} exit={{ opacity: 0 }}>
                                 {context.game.awayName}
                             </StyledBtn>
                         </Link>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, withRouter } from "react-router-dom";
-import { AnimatePresence } from 'framer-motion';
 
 import { PollContext } from '../components/PollContext';
 import { MainPageLayout, StyledBtn } from "../Elements";
@@ -12,8 +11,12 @@ const Home = ({ match: { params, url } }) => (
                 <h2><center>Click Below To Start The Polling Application</center></h2>
                 <Link to={`/polls/${context.game.id}`}>
                     <StyledBtn
+                        // Change url based on previewed card 
                         onClick={() => url.replace(`/${params.id}`, `/${context.game.id}`)}
                         whileTap={{ scale: 0.8 }}
+                        initial={{ opacity: 0, y: -100 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0 }}
                     >
                         BEGIN
                     </StyledBtn>
@@ -24,3 +27,5 @@ const Home = ({ match: { params, url } }) => (
 )
 
 export default withRouter(Home);
+
+// b64f06a055246cf554cb8e64d1d3cb9fa955b2f9
