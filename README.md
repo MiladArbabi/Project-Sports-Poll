@@ -19,6 +19,10 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 Author general approach was to use stateless functional components rather than stateful components.
 
+Data is circulated throughout the application using react context API and games information is hardcoded as state inside the PollProvider.js component.
+
+React Router Dom is used for routing in this project.
+
 Styled components and framer motion elements are used throughout the project to style the application.
 
 Navigation bar takes the user to the three main pages of application including:
